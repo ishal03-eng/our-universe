@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Collect the Hearts 💖</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at bottom, #1a1a40, #000);
+      color: #fff;
+      text-align: center;
+    }
+
+    #heart-game-section {
+      padding: 2rem 1rem;
+    }
+
+    #heartCanvas {
+      background-color: #0d0d2b;
+      border-radius: 1rem;
+      max-width: 90%;
+      touch-action: none;
+    }
+
+    #heartScore {
+      color: #ffb6c1;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    a {
+      color: #ffb6c1;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+  <section id="heart-game-section">
+    <h3>💖 Collect the Hearts!</h3>
+    <canvas id="heartCanvas" width="400" height="600"></canvas>
+    <div id="heartScore">Hearts Collected: 0</div>
+    <br/>
+    <a href="index.html">← Back to Main Page</a>
+  </section>
+
+  <script>
+    const canvas = document.getElementById("heartCanvas");
+    const ctx = canvas.getContext("2d");
+
+    let player = { x: canvas.width / 2, y: canvas.height - 50, radius: 25 };
+    let hearts = [];
+    let score = 0;
+    const winThreshold = 20;
+    let hasWon = false;
+
+    function drawPlayer() {
+      ctx.font = "30px Arial";
+      ctx.textAlign = "center";
+      ctx.fillText("👧", player.x, player.y);
+    }
+
+    function drawHeart(x, y) {
+      ctx.font = "24px Arial";
+      ctx.textAlign = "center";
+      ctx.fillText("❤️", x, y);
+    }
+
+    function spawnHeart() {
+      let x = Math.random() * (canvas.width - 30) + 15;
+      hearts.push({ x, y: -20 });
+    }
+
+    function updateHearts() {
+      for (let i = 0; i < hearts.length; i++) {
+        hearts[i].y += 2;
+
+        let dx = player.x - hearts[i].x;
+        let dy = player.y - hearts[i].y;
+        if (Math.sqrt(dx * dx + dy * dy) < player.radius + 20) {
+          score++;
+          hearts.splice(i, 1);
+          i--;
+
+          if (score === winThreshold && !hasWon) {
+            hasWon = true;
+            showWinMessage();
+          }
+        } else if (hearts[i].y > canvas.height) {
+          hearts.splice(i, 1);
+          i--;
+        }
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawPlayer();
+      hearts.forEach(h => drawHeart(h.x, h.y));
+      updateHearts();
+
+      document.getElementById("heartScore").innerText = `Hearts Collected: ${score}`;
+      requestAnimationFrame(draw);
+    }
+
+    function showWinMessage() {
+      Swal.fire({
+        title: "💖 You Did It!",
+        html: `
+          <p style="font-size:1.2rem; color:#ff4f81;"><strong>You've collected 20 hearts!</strong></p>
+          <p style="font-size:1rem; color:#fff;">Your love powers are off the charts! 💫<br>Here's a virtual hug and all my love! 💕</p>
+          <p style="font-size:2rem;">🎁✨🌸</p>
+        `,
+        background: '#1a1a2e',
+        color: '#ffe8f0',
+        confirmButtonText: 'Play Again ❤️',
+        confirmButtonColor: '#ff4f81'
+      }).then(() => {
+        resetGame();
+      });
+    }
+
+    function resetGame() {
+      score = 0;
+      hasWon = false;
+      hearts = [];
+      player.x = canvas.width / 2;
+    }
+
+    function movePlayer(e) {
+      const rect = canvas.getBoundingClientRect();
+      const x = e.touches ? e.touches[0].clientX : e.clientX;
+      player.x = x - rect.left;
+    }
+
+    canvas.addEventListener("mousemove", movePlayer);
+    canvas.addEventListener("touchmove", movePlayer);
+
+    setInterval(spawnHeart, 1000);
+    draw();
+  </script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Little Universe 🌌</title>
+    <link rel="icon" href="assets/images/favicon.png" type="image/png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Dancing+Script:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  </head>
+
+  <body>
+    <canvas id="star-canvas"></canvas>
+    <div id="moon"></div>
+
+    <!-- Intro -->
+    <section id="landing">
+      <h1 id="typewriter" class="intro-title"></h1>
+      <button id="enter-btn">Enter the Universe 💖</button>
+    </section>
+
+    <!-- Quotes -->
+    <section id="quotes-section">
+      <div id="quote-box">
+        <p id="quote-text">Loading...</p>
+        <p id="quote-author"></p>
+      </div>
+    </section>
+
+    <!-- Mood Matcher -->
+    <section id="mood-matcher" class="section">
+      <h2>✨ Mood Matcher</h2>
+      <div class="mood-buttons">
+        <button class="mood-btn" data-mood="happy">😊</button>
+        <button class="mood-btn" data-mood="sad">😢</button>
+        <button class="mood-btn" data-mood="love">😍</button>
+        <button class="mood-btn" data-mood="sleepy">😴</button>
+        <button class="mood-btn" data-mood="angry">😤</button>
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section id="timeline-section">
+      <h2>📅 Our Timeline</h2>
+      <p class="timeline-intro">
+        A journey through all the moments that made our little universe special
+        ✨
+      </p>
+      <div class="timeline" id="timeline-container"></div>
+    </section>
+    <section id="main-content">
+      <h2>More Memories Coming Soon...</h2>
+    </section>
+
+    <!-- Gift Section -->
+    <section id="gift-section">
+      <h2>🎁 A Little Surprise For You</h2>
+      <div id="gift-box">
+        <div class="emoji-gift">🎁</div>
+        <p>Tap to open</p>
+      </div>
+    </section>
+
+    <!-- Mini Game -->
+    <section id="mini-game-section">
+      <h3>🎮 A Little Surprise!</h3>
+      <p>Ready to play a cute game? Help her collect all the hearts! 💕</p>
+      <a href="heart-game.html" id="heart-game-btn">Play Now</a>
+    </section>
+
+
+    <!-- Countdown to Special Days -->
+    <section id="countdown-section">
+      <h2>⏳ Countdown to Our Special Days</h2>
+      <div class="countdown-container">
+        <div class="countdown-box">
+          <h3>💍 Anniversary</h3>
+          <p class="countdown-date">March 14, 2026</p>
+          <p id="anniversary-countdown">Loading...</p>
+        </div>
+        <div class="countdown-box">
+          <h3>🎂 Birthdays</h3>
+          <p class="countdown-date"><strong>Mine:</strong> August 3, 2025</p>
+          <p id="birthday1-countdown">Loading...</p>
+          <p class="countdown-date"><strong>Yours:</strong> August 13, 2025</p>
+          <p id="birthday2-countdown">Loading...</p>
+        </div>
+        <div class="countdown-box">
+          <h3>🤗 Next Meet-up</h3>
+          <p class="countdown-date">July 26, 2025</p>
+          <p id="meetup-countdown">Loading...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Love Map -->
+    <section id="love-map-section">
+      <h3>📍 Our Love Map</h3>
+      <div
+        id="map"
+        style="
+          height: 400px;
+          width: 90%;
+          margin: auto;
+          border-radius: 12px;
+          box-shadow: 0 0 15px rgba(255, 182, 193, 0.3);
+        "
+      ></div>
+      <p style="color: #ffb6c1; font-size: 1.1rem; margin-top: 1rem">
+        Despite the miles between <strong>Kharar</strong> and
+        <strong>Rohini</strong>, love always finds a way 💞
+      </p>
+    </section>
+
+    <!-- Final Confession -->
+    <section id="final-confession">
+      <h2>Final Words 💌</h2>
+      <p class="confession-text">
+        I made this to show how much you mean to me.<br />
+        You’ve become the center of my little universe. 💖
+      </p>
+      <div class="confession-buttons">
+        <button id="play-song-btn">🎵 Play Our Song</button>
+        <button onclick="window.location.href='love-letter.html'">
+          💌 Read My Letter
+        </button>
+      </div>
+      <div id="spotify-embed" style="display: none; margin-top: 20px">
+        <iframe
+          style="border-radius: 12px"
+          src="https://open.spotify.com/embed/track/0tgVpDi06FyKpA1z0VMD4v?utm_source=generator"
+          width="100%"
+          height="80"
+          frameborder="0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+        ></iframe>
+      </div>
+    </section>
+
+    <!-- Floating Messages -->
+    <div id="floating-messages-container"></div>
+
+    <!-- Scripts -->
+    <script src="components/quotes.js"></script>
+    <script src="components/timeline.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,763 @@
+/* Base Styling */
+body {
+    margin: 0;
+    font-family: 'Poppins', 'Inter', sans-serif;
+    background: linear-gradient(135deg, #1e1e3f, #2a4a8e);
+    color: #f5f5f5;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+section {
+    padding: 5rem 1.5rem;
+    text-align: center;
+    min-height: 60vh;
+}
+
+/* Typewriter Effect */
+#typewriter {
+    font-family: 'Dancing Script', 'Playfair Display', cursive;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: #ffdee9;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #f5f5f5;
+    width: 0;
+    animation: typing 3.5s steps(30, end) forwards, blink 0.8s step-end infinite;
+    margin-bottom: 1.5rem;
+}
+
+@keyframes typing { to { width: 100%; } }
+@keyframes blink { 50% { border-color: transparent; } }
+
+/* Landing Page */
+#landing {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+    background: linear-gradient(180deg, rgba(0, 4, 40, 0.9), rgba(0, 78, 146, 0.8)), url('https://source.unsplash.com/random/1920x1080?stars');
+    background-size: cover;
+    background-position: center;
+}
+
+.intro-title {
+    font-family: 'Dancing Script', 'Playfair Display', cursive;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #f5f5f5;
+    width: 0;
+    animation: typing 3.5s steps(30, end) forwards, blink 0.8s step-end infinite;
+    margin-bottom: 1.5rem;
+}
+
+/* Enter Button */
+#enter-btn {
+    margin-top: 2rem;
+    background: #ff6b9b;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 155, 0.4);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+
+#enter-btn:hover {
+    background: #ff4f81;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 155, 0.6);
+}
+
+/* Quote Section */
+#quotes-section {
+    background: linear-gradient(45deg, #1c2526, #2d3b4e);
+    padding: 4rem 1rem;
+}
+
+#quote-box {
+    max-width: 90%;
+    width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, opacity 1s ease-in-out;
+}
+
+#quote-text {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    font-style: italic;
+    margin-bottom: 1rem;
+    color: #f5f5f5;
+}
+
+#quote-author {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    color: #ffccd5;
+}
+
+/* Spotify Embed */
+#spotify-embed {
+    display: none;
+    margin: 2rem auto;
+    max-width: 600px;
+    width: 90%;
+}
+
+#spotify-embed iframe {
+    border-radius: 12px;
+    width: 100%;
+    height: 80px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#play-song-btn {
+    background: #ff6b9b;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 155, 0.4);
+}
+
+#play-song-btn:hover {
+    background: #ff4f81;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 155, 0.6);
+}
+
+/* Timeline Section */
+#timeline-section {
+    background: #12122c;
+    padding: 4rem 1rem;
+}
+
+#timeline-section h2 {
+    color: #ffccd5;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 1rem;
+}
+
+.timeline-intro {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: #ffdee9;
+    margin-bottom: 2rem;
+    font-family: 'Dancing Script', 'Playfair Display', cursive;
+}
+
+.timeline {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    padding: 1rem 0;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background: linear-gradient(to bottom, #ff6b9b, #ffccd5);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 3px;
+}
+
+.timeline-block {
+    padding: 1rem;
+    width: 45%;
+    margin-bottom: 2rem;
+    position: relative;
+    cursor: pointer;
+}
+
+.timeline-block::before {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: #ff6b9b;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.timeline-block.left {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-block.left::before {
+    right: -27px;
+}
+
+.timeline-block.right {
+    left: 55%;
+    text-align: left;
+}
+
+.timeline-block.right::before {
+    left: -27px;
+}
+
+.timeline-content {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #ffccd5;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-content strong {
+    color: #ff4f81;
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.timeline-content span {
+    color: #ff69b4;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    font-weight: 500;
+}
+
+/* Main Content Section */
+#main-content {
+    padding: 3rem 1rem;
+}
+
+#main-content h2 {
+    color: #ffccd5;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-family: 'Dancing Script', 'Playfair Display', cursive;
+}
+
+/* Gift Section */
+#gift-section {
+    background: linear-gradient(to top, #0d0d2b, #1c2526);
+    padding: 5rem 1rem;
+}
+
+#gift-section h2 {
+    color: #ffccd5;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 2rem;
+}
+
+#gift-box {
+    margin-top: 2rem;
+    animation: bounce 2.5s ease-in-out infinite;
+    cursor: pointer;
+}
+
+.emoji-gift {
+    font-size: clamp(4rem, 10vw, 6rem);
+    transition: transform 0.4s ease;
+}
+
+#gift-box:hover .emoji-gift {
+    transform: scale(1.15);
+}
+
+#gift-box p {
+    margin-top: 1rem;
+    font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+    color: #ffccd5;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* Floating Messages */
+#floating-messages-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.floating-message {
+    position: absolute;
+    font-family: 'Dancing Script', 'Playfair Display', cursive;
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    color: #ffccd5;
+    opacity: 0;
+    animation: floatUp 5s ease-in-out forwards;
+    white-space: nowrap;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) scale(0.8);
+        opacity: 0;
+    }
+    15% {
+        opacity: 0.9;
+    }
+    85% {
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateY(-10vh) scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* Final Confession */
+#final-confession {
+    background: linear-gradient(180deg, #1f1f3f, #0d0d1c);
+    padding: 5rem 1rem;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    14% { transform: scale(1.3); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.3); }
+    70% { transform: scale(1); }
+}
+
+#final-confession h2 {
+    animation: heartbeat 2s infinite;
+    color: #ff4d6d;
+    text-shadow: 0 0 10px rgba(255, 105, 135, 0.6);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 1rem;
+}
+
+.confession-text {
+    font-family: 'Dancing Script', 'Playfair Display', cursive;
+    font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+    color: #ffdee9;
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.confession-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.confession-buttons button {
+    background: #ff6b9b;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 155, 0.4);
+}
+
+.confession-buttons button:hover {
+    background: #ff4f81;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 155, 0.6);
+}
+
+/* Moon & Canvas */
+#star-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: #000428;
+}
+
+#moon {
+    position: fixed;
+    top: 60px;
+    right: 80px;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle at 30% 30%, #aeab9a, #c6c1c1, #636161);
+    border-radius: 50%;
+    box-shadow: 0 0 60px rgba(169, 169, 151, 0.879), 0 0 100px rgba(255, 255, 255, 0.6);
+    z-index: 0;
+    animation: floatMoon 8s ease-in-out infinite, pulseGlow 4s ease-in-out infinite;
+}
+
+@keyframes floatMoon {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 60px rgba(255, 255, 240, 0.8), 0 0 100px rgba(255, 255, 255, 0.6); }
+    50% { box-shadow: 0 0 80px rgba(255, 255, 200, 1), 0 0 130px rgba(255, 255, 200, 0.9); }
+}
+
+/* Mini Game Section */
+#mini-game-section {
+    background: transparent;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+#mini-game-section h3 {
+    color: #ffb6c1;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 8px rgba(255, 182, 193, 0.6);
+}
+
+#mini-game-section p {
+    color: #ffe8f0;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    margin-bottom: 2rem;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+#heart-game-btn {
+    background-color: #ff4f81;
+    color: white;
+    padding: 14px 32px;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 12px rgba(255, 79, 129, 0.4);
+    display: inline-block;
+}
+
+#heart-game-btn:hover {
+    background-color: #e63e6b;
+    transform: scale(1.05);
+}
+
+/* Heart Game Canvas (for heart-game.html) */
+#heartCanvas {
+    display: block;
+    margin: 1rem auto;
+    width: 90%;
+    max-width: 600px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#heartScore {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: #ffccd5;
+    margin-top: 1rem;
+    font-family: 'Dancing Script', 'Playfair Display', cursive;
+}
+
+/* Love Map */
+#love-map-section {
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+#love-map-section h3 {
+    color: #ffb6c1;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 1rem;
+}
+
+#map {
+    height: 400px;
+    width: 90%;
+    max-width: 800px;
+    margin: 1rem auto;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(255, 182, 193, 0.3);
+}
+
+#love-map-section p {
+    color: #ffb6c1;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    margin-top: 1rem;
+}
+
+/* Mood Matcher */
+#mood-matcher {
+    text-align: center;
+    margin: 60px 0;
+    padding: 40px 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(68, 66, 67, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+}
+
+#mood-matcher h2 {
+    color: #ffccd5;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 1rem;
+}
+
+.mood-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.mood-btn {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    background-color: #ffffff;
+    border: 2px solid #ffb6c1;
+    border-radius: 50%;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(255, 105, 180, 0.15);
+}
+
+.mood-btn:hover {
+    transform: scale(1.2);
+    background-color: #ffe4ec;
+}
+
+/* Countdown Section */
+#countdown-section {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(to top, #0d0d2b, #1c2526);
+}
+
+#countdown-section h2 {
+    color: #ffccd5;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 1rem;
+}
+
+.countdown-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.countdown-box {
+    background: #fff;
+    border: 2px solid #ffb6c1;
+    border-radius: 12px;
+    padding: 20px;
+    min-width: 220px;
+    box-shadow: 0 0 10px rgba(255, 182, 193, 0.2);
+}
+
+.countdown-date {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    color: #888;
+    margin-bottom: 8px;
+    font-style: italic;
+}
+
+.countdown-box h3 {
+    margin-bottom: 10px;
+    color: #ff69b4;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+}
+
+.countdown-box p {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    color: #333;
+}
+
+#anniversary-countdown,
+#birthday1-countdown,
+#birthday2-countdown,
+#meetup-countdown {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: #ff4f81;
+    font-weight: bold;
+}
+
+/* SweetAlert2 Customizations */
+.swal2-popup {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+    color: #333;
+}
+
+.swal2-title {
+    font-family: 'Dancing Script', 'Playfair Display', cursive;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: #ff69b4;
+}
+
+.swal2-html-container p {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+}
+
+.swal2-html-container p strong {
+    color: #ff4f81;
+}
+
+.swal2-html-container p.event-desc {
+    color: #ff7aa2;
+    font-weight: 500;
+}
+
+.swal2-confirm {
+    background: #ff6b9b !important;
+    border-radius: 50px !important;
+    padding: 0.8rem 2rem !important;
+    font-size: clamp(0.9rem, 2vw, 1.1rem) !important;
+}
+
+.swal2-confirm:hover {
+    background: #ff4f81 !important;
+    box-shadow: 0 6px 20px rgba(255, 107, 155, 0.6) !important;
+}
+
+/* Responsive Design */
+@media (max-width: 1028px) {
+    section { padding: 4rem 1.2rem; }
+    .intro-title, #typewriter { font-size: clamp(2.2rem, 5vw, 3.5rem); }
+    #quote-box { width: 80%; padding: 1.8rem; }
+    .timeline-block { width: 48%; }
+    .timeline-block.right { left: 52%; }
+    .timeline-block::before { width: 14px; height: 14px; }
+    .timeline-block.left::before { right: -25px; }
+    .timeline-block.right::before { left: -25px; }
+    .timeline-content strong, .timeline-content span { font-size: clamp(0.9rem, 1.8vw, 1rem); }
+    .floating-message { font-size: clamp(0.9rem, 2.3vw, 1.3rem); }
+    #moon { width: 100px; height: 100px; top: 50px; right: 60px; }
+    .confession-text { max-width: 90%; }
+    .mood-btn { font-size: clamp(1.6rem, 3.5vw, 2rem); }
+    .countdown-box { min-width: 200px; }
+    #heartCanvas { height: 350px; }
+    #map { height: 350px; }
+    #spotify-embed { max-width: 80%; }
+    .swal2-popup { max-width: 80%; }
+    #main-content { padding: 2rem 1rem; }
+}
+
+@media (max-width: 768px) {
+    section { padding: 3rem 1rem; }
+    .intro-title, #typewriter { font-size: clamp(2rem, 8vw, 3rem); }
+    #enter-btn { padding: 0.7rem 1.5rem; font-size: clamp(0.9rem, 2vw, 1rem); }
+    #quote-box { padding: 1.5rem; width: 85%; }
+    #quote-text { font-size: clamp(1.1rem, 2.8vw, 1.6rem); }
+    #quote-author { font-size: clamp(0.8rem, 1.8vw, 1rem); }
+    .timeline::after { left: 20px; transform: none; width: 5px; }
+    .timeline-block { width: 100%; left: 0 !important; text-align: left; padding: 0 0 0 40px; margin-bottom: 1.5rem; }
+    .timeline-block::before { left: 8px; width: 12px; height: 12px; border-width: 2px; }
+    .timeline-content { padding: 1.2rem; }
+    .timeline-content strong, .timeline-content span { font-size: clamp(0.8rem, 1.6vw, 0.9rem); }
+    .floating-message { font-size: clamp(0.8rem, 2vw, 1.2rem); }
+    .confession-text { font-size: clamp(1.1rem, 3vw, 1.5rem); }
+    .emoji-gift { font-size: clamp(3.5rem, 9vw, 5rem); }
+    #moon { width: 90px; height: 90px; top: 40px; right: 40px; }
+    .mood-btn { font-size: clamp(1.4rem, 3vw, 1.8rem); padding: 12px 16px; }
+    .countdown-box { min-width: 180px; }
+    #heartCanvas { height: 300px; }
+    #map { height: 300px; }
+    #spotify-embed { max-width: 85%; }
+    .swal2-popup { max-width: 85%; }
+    .swal2-title { font-size: clamp(1.3rem, 2.8vw, 1.8rem); }
+    #main-content h2 { font-size: clamp(1.2rem, 2.5vw, 1.5rem); }
+}
+
+@media (max-width: 425px) {
+    section { padding: 2.5rem 0.9rem; }
+    .intro-title, #typewriter { font-size: clamp(1.8rem, 7vw, 2.5rem); border-right-width: 2px; }
+    #enter-btn { padding: 0.6rem 1.3rem; font-size: clamp(0.8rem, 2vw, 0.9rem); }
+    #quote-box { padding: 1.2rem; width: 90%; }
+    #quote-text { font-size: clamp(1rem, 2.5vw, 1.4rem); }
+    #quote-author { font-size: clamp(0.7rem, 1.5vw, 0.9rem); }
+    .timeline::after { left: 15px; width: 4px; }
+    .timeline-block { padding: 0 0 0 35px; margin-bottom: 1.2rem; }
+    .timeline-block::before { left: 6px; width: 10px; height: 10px; }
+    .timeline-content { padding: 1rem; }
+    .timeline-content strong, .timeline-content span { font-size: clamp(0.7rem, 1.5vw, 0.85rem); }
+    .floating-message { font-size: clamp(0.7rem, 1.8vw, 1.1rem); }
+    .emoji-gift { font-size: clamp(3rem, 8vw, 4rem); }
+    .confession-text { font-size: clamp(1rem, 2.8vw, 1.3rem); }
+    .confession-buttons button { width: 100%; padding: 0.6rem; font-size: clamp(0.8rem, 1.8vw, 0.9rem); }
+    #mini-game-section h3 { font-size: clamp(1.2rem, 2.5vw, 1.5rem); }
+    #mini-game-section p { font-size: clamp(0.8rem, 1.8vw, 1rem); }
+    #heart-game-btn { padding: 12px 24px; font-size: clamp(0.8rem, 1.8vw, 0.9rem); }
+    .mood-btn { font-size: clamp(1.2rem, 2.8vw, 1.6rem); padding: 10px 14px; }
+    .countdown-box { min-width: 90%; padding: 15px; }
+    #heartCanvas { height: 250px; }
+    #map { height: 250px; }
+    #spotify-embed { max-width: 90%; }
+    #heartScore { font-size: clamp(0.9rem, 2vw, 1rem); }
+    .swal2-popup { max-width: 90%; }
+    .swal2-title { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
+    #play-song-btn { padding: 0.6rem 1.3rem; font-size: clamp(0.8rem, 1.8vw, 0.9rem); }
+    #main-content h2 { font-size: clamp(1.2rem, 2.5vw, 1.5rem); }
+}
+
+@media (max-width: 320px) {
+    body { font-size: 14px; }
+    section { padding: 1.5rem 0.5rem; }
+    .intro-title, #typewriter { font-size: clamp(1.0rem, 4vw, 1rem); border-right-width: 2px; }
+    #enter-btn { font-size: clamp(0.7rem, 1.8vw, 0.85rem); padding: 0.5rem 1rem; }
+    #quote-box { padding: 1rem; width: 95%; }
+    #quote-text { font-size: clamp(0.9rem, 2.3vw, 1.2rem); }
+    #quote-author { font-size: clamp(0.65rem, 1.3vw, 0.85rem); }
+    .timeline::after { left: 12px; width: 3px; }
+    .timeline-block { padding: 0 0 0 30px; margin-bottom: 1rem; }
+    .timeline-block::before { left: 4px; width: 8px; height: 8px; border-width: 2px; }
+    .timeline-content { padding: 0.8rem; }
+    .timeline-content strong, .timeline-content span { font-size: clamp(0.65rem, 1.3vw, 0.8rem); }
+    .floating-message { font-size: clamp(0.65rem, 1.5vw, 1rem); }
+    #gift-box p { font-size: clamp(0.8rem, 2vw, 0.95rem); }
+    .emoji-gift { font-size: clamp(2.5rem, 7vw, 3.5rem); }
+    .confession-text { font-size: clamp(0.9rem, 2.5vw, 1.2rem); padding: 0 0.5rem; }
+    .confession-buttons button { font-size: clamp(0.7rem, 1.5vw, 0.85rem); padding: 0.5rem 0.8rem; }
+    #mini-game-section h3 { font-size: clamp(1rem, 2.3vw, 1.3rem); }
+    #mini-game-section p { font-size: clamp(0.7rem, 1.5vw, 0.9rem); }
+    #heart-game-btn { font-size: clamp(0.7rem, 1.5vw, 0.85rem); padding: 10px 18px; }
+    .mood-btn { font-size: clamp(1rem, 2.5vw, 1.4rem); padding: 8px 12px; }
+    .countdown-box { padding: 12px; min-width: 95%; }
+    .countdown-box h3 { font-size: clamp(0.9rem, 2vw, 1.1rem); }
+    .countdown-box p { font-size: clamp(0.8rem, 1.8vw, 1rem); }
+    #heartCanvas { height: 200px; }
+    #map { height: 200px; }
+    #spotify-embed { max-width: 95%; }
+    #heartScore { font-size: clamp(0.8rem, 1.8vw, 0.9rem); }
+    #moon { width: 70px; height: 70px; top: 20px; right: 20px; }
+    .swal2-popup { max-width: 95%; }
+    .swal2-title { font-size: clamp(1rem, 2.3vw, 1.4rem); }
+    #play-song-btn { font-size: clamp(0.7rem, 1.5vw, 0.85rem); padding: 0.5rem 1rem; }
+    #main-content h2 { font-size: clamp(1rem, 2.3vw, 1.3rem); }
+}
