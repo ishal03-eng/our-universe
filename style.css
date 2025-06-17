@@ -697,7 +697,7 @@ section {
 
 @media (max-width: 425px) {
     section { padding: 2.5rem 0.9rem; }
-    .intro-title, #typewriter { font-size: clamp(1.8rem, 7vw, 2.5rem); border-right-width: 2px; }
+    .intro-title, #typewriter { font-size: clamp(1.6rem, 6vw, 2.0rem); border-right-width: 2px; }
     #enter-btn { padding: 0.6rem 1.3rem; font-size: clamp(0.8rem, 2vw, 0.9rem); }
     #quote-box { padding: 1.2rem; width: 90%; }
     #quote-text { font-size: clamp(1rem, 2.5vw, 1.4rem); }
